@@ -27,6 +27,7 @@ b = round(g/(p));
 
 %% call algorithms
 alpha = log2(p+1:-1:2);
+
 [positions_alpha_is_one, values_alpha_is_one, approx_error_alpha_is_one, tus_alpha_is_one, Ubar_alpha_is_one, S_alpha_is_one, diagonal_alpha_is_one] = ...
     algoritm1_alpha_is_ones(A, g, p);
 
@@ -62,3 +63,17 @@ hold on; plot(diagonal_block_random/total*100, '--mp');
 xlabel('Number of blocks');
 ylabel('Representation accuracy (%)');
 legend('proposed block', 'Jacobi block', 'random block');
+
+
+%% get lowest eigenvalues via Algorithm 1
+alpha = 1:p;
+[positions, values, approx_error, tus, Ubar, S, diagonal] = algoritm1(-A, alpha, 10*g, p);
+
+[positions_alpha_is_one, values_alpha_is_one, approx_error_alpha_is_one, tus_alpha_is_one, Ubar_alpha_is_one, S_alpha_is_one, diagonal_alpha_is_one] = ...
+    algoritm1_alpha_is_ones(-A, 10*g, p);
+	
+%% plot results
+total = -trace(L(1:p, 1:p));
+figure;
+plot(diagonal/total*100, 'k');
+hold on; plot(diagonal_alpha_is_one/total*100, 'g');

@@ -77,3 +77,6 @@ total = -trace(L(1:p, 1:p));
 figure;
 plot(diagonal/total*100, 'k');
 hold on; plot(diagonal_alpha_is_one/total*100, 'g');
+xlabel('Number of basic transformations');
+ylabel('Representation accuracy (%)');
+legend('proposed, alpha decreasing', 'proposed, alpha minus ones');

@@ -1,5 +1,5 @@
 # JACOBI-PCA
- A Jacobi-type algorithms to compute a few eigenvalues/eigenvectors
+ A Jacobi-type algorithm to compute a few eigenvalues/eigenvectors
 
 Cristian Rusu
 May, 2021

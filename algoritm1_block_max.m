@@ -93,7 +93,7 @@ end
 %% explictly build Ubar
 Ubar = eye(d);
 for k = 1:b
-    Ubar(positions(:, k), positions(:, k)) = reshape(values(:, k), 2*p, 2*p)*Ubar(positions(:, k), positions(:, k));
+    Ubar(positions(:, k), positions(:, k)) = reshape(values(:, k), 2*p, 2*p)'*Ubar(positions(:, k), positions(:, k));
 end
 
 %% time everything
